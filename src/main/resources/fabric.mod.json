@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "sharepoint",
+  "version": "${version}",
+  "name": "Sharepoint",
+  "description": "Share Lunar Client waypoints.json between users.",
+  "authors": [
+    "JonnyP0g"
+  ],
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.jonnyp0g.sharepoint.SharepointClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "fabric-api": "*",
+    "minecraft": "~1.21.6",
+    "java": ">=21"
+  }
+}
