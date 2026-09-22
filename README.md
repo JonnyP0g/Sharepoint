@@ -15,4 +15,4 @@ Run these in-game (client commands):
 - `/sharepoint list` → lists available shared waypoint files
 
 ## Development notes
-This repository now contains a minimal Fabric Loom scaffold targeting Minecraft `1.21.6` / Fabric API `0.126.0+1.21.6` and Java 21.
+This repository now contains a minimal Fabric Loom scaffold targeting Minecraft `1.21.6` / Fabric API `0.126.3+1.21.6` and Java 21.
