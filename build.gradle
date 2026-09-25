@@ -41,6 +41,10 @@ dependencies {
 
 processResources {
 	inputs.property "version", project.version
+	inputs.property "relayUrl", providers.gradleProperty('relayUrl').getOrElse('')
+	filesMatching('sharepoint-defaults.properties') {
+		expand relayUrl: providers.gradleProperty('relayUrl').getOrElse('')
+	}
 
 	filesMatching("fabric.mod.json") {
 		expand "version": project.version
@@ -69,6 +73,26 @@ jar {
 		rename { "${it}_$projectName" }
 	}
 }
+
+// Standalone integration tests exercise the real relay and client without launching Minecraft.
+sourceSets {
+	relayTest {
+		java.srcDirs = ['relay', 'src/relayTest/java', 'src/client/java']
+		java.include 'HostedRelayServer.java', 'HostedRelayIntegrationTest.java',
+			'com/jonnyp0g/sharepoint/HostedRelayClient.java',
+			'com/jonnyp0g/sharepoint/WaypointShareService.java',
+			'com/jonnyp0g/sharepoint/SharepointConfig.java',
+			'com/jonnyp0g/sharepoint/HostedClientChecks.java'
+		compileClasspath += sourceSets.client.compileClasspath
+		runtimeClasspath += sourceSets.client.compileClasspath
+	}
+}
+tasks.register('testHostedRelay', JavaExec) {
+	dependsOn tasks.named('relayTestClasses')
+	classpath = sourceSets.relayTest.runtimeClasspath
+	mainClass = 'HostedRelayIntegrationTest'
+}
+tasks.named('check') { dependsOn tasks.named('testHostedRelay') }
 
 // configure the maven publication
 publishing {

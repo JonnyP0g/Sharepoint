@@ -1,4 +1,8 @@
 .gradle/
+.gradle-user/
+relay/logs/
+relay/bin/
+relay/*.exe
 build/
 out/
 *.iml

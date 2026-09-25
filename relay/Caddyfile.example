@@ -1,0 +1,8 @@
+# Replace this domain with your Playit HTTPS tunnel's domain.
+# Playit forwards TLS to Caddy; Caddy forwards HTTP to the loopback-only relay.
+your-relay.playit.plus {
+    request_body {
+        max_size 5MB
+    }
+    reverse_proxy 127.0.0.1:8080
+}

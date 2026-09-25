@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: sharepoint-relay
+    runtime: docker
+    dockerfilePath: ./relay/Dockerfile
+    dockerContext: ./relay
+    plan: free
+    healthCheckPath: /healthz
+    envVars:
+      - key: BIND_ADDRESS
+        value: 0.0.0.0
