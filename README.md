@@ -26,9 +26,9 @@ tunnel. Your existing Minecraft tunnel is a separate connection.
 The [relay setup guide](relay/README.md) covers Playit HTTPS + Caddy, a temporary
 Cloudflare tunnel, and optional Docker/Render hosting.
 
-The default build uses `https://theorem-dui-dvd-elliott.trycloudflare.com`, configured
-in `gradle.properties`. This is a temporary Cloudflare Quick Tunnel: restarting
-the tunnel changes its URL. Both the relay and tunnel must remain running.
+The default build uses `https://sharepoint-relay.onrender.com`, configured
+in `gradle.properties`. The relay runs on Render Free, so your PC and local
+tunnel can be off. After inactivity, allow up to two minutes for it to wake up.
 Settings can override the bundled URL; blank settings use the bundled default.
 
 ## Build and install

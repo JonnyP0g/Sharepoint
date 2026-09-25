@@ -78,9 +78,9 @@ root (Java 25 required):
 
 Distribute `build/libs/sharepoint-1.0.0.jar`. A player's saved `relayUrl` overrides
 the bundled URL; update Settings if that player previously used another relay.
-The default build currently bundles `https://theorem-dui-dvd-elliott.trycloudflare.com`
-from `gradle.properties`. This Quick Tunnel URL changes when the tunnel restarts;
-update the default and rebuild, or change Settings, if that happens.
+The default build bundles `https://sharepoint-relay.onrender.com` from
+`gradle.properties`. It runs on Render Free independently of your PC.
+If you previously saved the Cloudflare URL in Settings, replace it with this URL.
 
 ## Sharing behavior and limits
 
